@@ -1,0 +1,27 @@
+{
+  "name": "@iocare-ui-kit/monorepo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "turbo run build",
+    "dev:website": "pnpm --filter website dev",
+    "format": "prettier --write .",
+    "clean": "turbo run clean && rm -rf node_modules"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.8.1",
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "turbo": "^2.5.3",
+    "typescript": "5.8.3"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "printWidth": 100,
+    "singleQuote": true,
+    "endOfLine": "auto"
+  }
+}

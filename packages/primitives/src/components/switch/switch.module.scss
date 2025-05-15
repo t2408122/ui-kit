@@ -1,0 +1,119 @@
+// 변수 정의
+$switch-width: 60px;
+$switch-height: 34px;
+$switch-padding: 4px;
+$switch-transition: 0.3s ease;
+$switch-thumb-size: 26px;
+$switch-border-radius: 34px;
+$switch-background-off: #e0e0e0;
+$switch-background-on: #2196f3;
+$switch-thumb-color: white;
+$switch-focus-shadow: 0 0 1px 2px rgba(33, 150, 243, 0.4);
+$switch-disabled-opacity: 0.6;
+
+// 스위치 기본 컨테이너
+.button-switch {
+  &__group {
+    position: relative;
+    display: inline-block;
+  }
+
+  // 기본 체크박스 숨기기
+  &__item {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+
+    // 포커스 상태일 때 스타일
+    &:focus + label::before {
+      box-shadow: $switch-focus-shadow;
+    }
+
+    // 체크 상태일 때 배경 색상 변경
+    &:checked + label {
+      &::before {
+        background-color: $switch-background-on;
+      }
+
+      // 체크 상태일 때 아이콘 위치 이동
+      .button-switch__icon {
+        transform: translateX($switch-width - $switch-thumb-size - $switch-padding * 2);
+      }
+    }
+
+    // 비활성화(disabled) 상태 스타일
+    &:disabled + label {
+      opacity: $switch-disabled-opacity;
+      cursor: not-allowed;
+    }
+  }
+
+  // 스위치 레이블 스타일
+  &__group label {
+    display: inline-block;
+    width: $switch-width;
+    height: $switch-height;
+    position: relative;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $switch-background-off;
+      border-radius: $switch-border-radius;
+      transition: all $switch-transition;
+    }
+  }
+
+  // 스위치 아이콘(동그라미) 스타일
+  &__icon {
+    position: absolute;
+    display: block;
+    width: $switch-thumb-size;
+    height: $switch-thumb-size;
+    left: $switch-padding;
+    bottom: $switch-padding;
+    background-color: $switch-thumb-color;
+    border-radius: 50%;
+    transition: transform $switch-transition;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+}
+
+// 크기 변형을 위한 추가 클래스 - 작은 크기
+.small {
+  .button-switch {
+    &__group label {
+      width: 44px;
+      height: 24px;
+    }
+
+    &__icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    &__item:checked + label .button-switch__icon {
+      transform: translateX(20px);
+    }
+  }
+}
+
+// 다크 테마 (옵션)
+.dark {
+  .button-switch {
+    &__group label::before {
+      background-color: #555;
+    }
+
+    &__item:checked + label::before {
+      background-color: #0d6efd;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "folders": [
+    {
+      "path": "apps/website",
+      "name": "website",
+    },
+    {
+      "path": "packages/primitives",
+      "name": "primitives",
+    },
+    {
+      "path": "packages/controls",
+      "name": "controls",
+    },
+    {
+      "path": ".",
+      "name": "monorepo",
+    },
+  ],
+  "settings": {
+    "typescript.tsdk": "monorepo/node_modules/typescript/lib",
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "extensions": {
+    "recommendations": ["esbenp.prettier-vscode", "dbaeumer.vscode-eslint"],
+  },
+}
