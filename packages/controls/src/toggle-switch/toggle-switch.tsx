@@ -1,7 +1,7 @@
 'use client';
 
 import useToggle from '../use-toggle/use-toggle';
-import { Switch } from '@iocare-ui-kit/primitives';
+import { Switch } from '@iocare-ui-kit/themes';
 
 interface ToggleSwitchProps {
   id: string;

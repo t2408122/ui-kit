@@ -15,7 +15,7 @@ ui-kit/
 
 ## Packages
 
-### Primitives (`@iocare-ui-kit/primitives`)
+### Themes (`@iocare-ui-kit/themes`)
 
 Basic UI components that serve as building blocks for more complex components:
 
@@ -88,4 +88,4 @@ pnpm clean
 
 ## License
 
-ISC 
+ISC

@@ -25,7 +25,7 @@
     "react-dom": "^19.1.0"
   },
   "dependencies": {
-    "@iocare-ui-kit/primitives": "workspace:*"
+    "@iocare-ui-kit/themes": "workspace:*"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

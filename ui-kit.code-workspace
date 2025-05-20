@@ -5,8 +5,8 @@
       "name": "website",
     },
     {
-      "path": "packages/primitives",
-      "name": "primitives",
+      "path": "packages/themes",
+      "name": "themes",
     },
     {
       "path": "packages/controls",

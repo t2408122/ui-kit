@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@iocare-ui-kit/controls": "workspace:*",
-    "@iocare-ui-kit/primitives": "workspace:*",
+    "@iocare-ui-kit/themes": "workspace:*",
     "next": "15.3.2",
     "nextra": "4.3.0-alpha.22",
     "nextra-theme-docs": "4.3.0-alpha.22",

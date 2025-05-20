@@ -1,5 +1,5 @@
 {
-  "name": "@iocare-ui-kit/primitives",
+  "name": "@iocare-ui-kit/themes",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -46,5 +46,9 @@
     "typescript-eslint": "^8.30.1",
     "vite": "^6.3.5",
     "vite-plugin-dts": "^4.5.3"
-  }
+  },
+  "sideEffects": [
+    "**/*.scss",
+    "**/*.css"
+  ]
 }

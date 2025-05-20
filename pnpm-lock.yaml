@@ -23,9 +23,9 @@ importers:
       '@iocare-ui-kit/controls':
         specifier: workspace:*
         version: link:../../packages/controls
-      '@iocare-ui-kit/primitives':
+      '@iocare-ui-kit/themes':
         specifier: workspace:*
-        version: link:../../packages/primitives
+        version: link:../../packages/themes
       next:
         specifier: 15.3.2
         version: 15.3.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.88.0)
@@ -69,9 +69,9 @@ importers:
 
   packages/controls:
     dependencies:
-      '@iocare-ui-kit/primitives':
+      '@iocare-ui-kit/themes':
         specifier: workspace:*
-        version: link:../primitives
+        version: link:../themes
     devDependencies:
       '@eslint/js':
         specifier: ^9.25.0
@@ -116,7 +116,7 @@ importers:
         specifier: ^4.5.3
         version: 4.5.3(@types/node@20.17.47)(rollup@4.40.2)(typescript@5.8.3)(vite@6.3.5(@types/node@20.17.47)(jiti@1.21.7)(sass@1.88.0)(yaml@2.7.1))
 
-  packages/primitives:
+  packages/themes:
     dependencies:
       clsx:
         specifier: ^2.1.1
