@@ -4,6 +4,10 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
+      "outputs": ["dist/**", "website/out/**", "publishing/build/**"]
+    },
+    "buildpack": {
+      "dependsOn": ["^buildpack"],
       "outputs": ["dist/**"]
     }
   }

@@ -1,0 +1,25 @@
+name: Changesets
+on:
+  push:
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  changeset:
+    name: Changeset
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup pnpm & node
+        uses: ./.github/actions/setup-pnpm-node
+      - name: Install dependencies
+        run: pnpm install
+      - name: Create Version package Pull Request
+        uses: changesets/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

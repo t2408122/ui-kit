@@ -1,8 +1,16 @@
 {
   "folders": [
     {
-      "path": "apps/website",
+      "path": ".",
+      "name": "monorepo",
+    },
+    {
+      "path": "docs/website",
       "name": "website",
+    },
+    {
+      "path": "apps/publishing",
+      "name": "publishing",
     },
     {
       "path": "packages/themes",
@@ -11,10 +19,6 @@
     {
       "path": "packages/controls",
       "name": "controls",
-    },
-    {
-      "path": ".",
-      "name": "monorepo",
     },
   ],
   "settings": {

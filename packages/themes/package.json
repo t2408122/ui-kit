@@ -22,7 +22,8 @@
   },
   "scripts": {
     "dev": "pnpm build --watch",
-    "build": "tsc -b && vite build"
+    "build": "tsc -b && vite build",
+    "buildpack": "tsc -b && vite build"
   },
   "peerDependencies": {
     "clsx": "^2.1.1",
@@ -46,9 +47,5 @@
     "typescript-eslint": "^8.30.1",
     "vite": "^6.3.5",
     "vite-plugin-dts": "^4.5.3"
-  },
-  "sideEffects": [
-    "**/*.scss",
-    "**/*.css"
-  ]
+  }
 }

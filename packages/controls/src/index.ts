@@ -1,3 +1,4 @@
-import { ToggleSwitch } from './toggle-switch/toggle-switch';
+import { ToggleSwitch } from './components/toggle-switch/toggle-switch';
+import useToggle from './components/use-toggle/use-toggle';
 
-export { ToggleSwitch };
+export { ToggleSwitch, useToggle };

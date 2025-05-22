@@ -1,0 +1,11 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@3.1.1/schema.json",
+  "changelog": ["@changesets/changelog-github", { "repo": "t2408122/ui-kit" }],
+  "commit": false,
+  "fixed": [["@iocare-ui-kit/theme", "@iocare-ui-kit/controls"]],
+  "linked": [["@iocare-ui-kit/theme", "@iocare-ui-kit/controls"]],
+  "access": "restricted",
+  "baseBranch": "main",
+  "updateInternalDependencies": "patch",
+  "ignore": ["website", "publishing"]
+}

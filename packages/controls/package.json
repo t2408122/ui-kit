@@ -18,7 +18,8 @@
   },
   "scripts": {
     "dev": "pnpm build --watch",
-    "build": "tsc -b && vite build"
+    "build": "tsc -b && vite build",
+    "buildpack": "tsc -b && vite build"
   },
   "peerDependencies": {
     "react": "^19.1.0",
