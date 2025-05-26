@@ -7,7 +7,8 @@
     "buildpack": "turbo run buildpack",
     "dev:website": "pnpm --filter website dev",
     "format": "prettier --write .",
-    "clean": "turbo run clean && rm -rf node_modules"
+    "clean": "turbo run clean && rm -rf node_modules",
+    "ci:test": "turbo run ci:test"
   },
   "keywords": [],
   "author": "",

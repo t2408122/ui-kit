@@ -9,6 +9,10 @@
     "buildpack": {
       "dependsOn": ["^buildpack"],
       "outputs": ["dist/**"]
+    },
+    "ci:test": {
+      "dependsOn": ["buildpack"],
+      "outputs": ["coverage/**"]
     }
   }
 }
