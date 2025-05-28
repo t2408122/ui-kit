@@ -1,5 +1,5 @@
 import { Footer, Layout, Navbar } from 'nextra-theme-docs';
-import { Banner, Head } from 'nextra/components';
+import { Head } from 'nextra/components';
 import { getPageMap } from 'nextra/page-map';
 import 'nextra-theme-docs/style.css';
 import '@iocare-ui-kit/themes/index.css';
@@ -7,34 +7,30 @@ import '@iocare-ui-kit/themes/index.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nextra.site'),
+  metadataBase: new URL('https://github.com/t2408122/ui-kit'),
   title: {
-    template: '%s - Nextra',
-    absolute: 'Nextra',
+    template: '%s - Iocare UI Kit',
+    absolute: 'Iocare UI Kit',
   },
-  description: 'Nextra: the Next.js site builder',
-  applicationName: 'Nextra',
+  description: 'Iocare UI Kit',
+  applicationName: 'Iocare UI Kit',
   generator: 'Next.js',
   appleWebApp: {
-    title: 'Nextra',
+    title: 'Iocare UI Kit',
   },
   other: {
     'msapplication-TileImage': '/ms-icon-144x144.png',
     'msapplication-TileColor': '#fff',
   },
   twitter: {
-    site: 'https://nextra.site',
+    site: 'https://github.com/t2408122/ui-kit',
   },
 };
 
-const banner = <Banner storageKey="some-key">Nextra 4.0 is released 🎉</Banner>;
 const navbar = (
-  <Navbar
-    logo={<b>Nextra</b>}
-    // ... Your additional navbar options
-  />
+  <Navbar logo={<b>Iocare UI Kit</b>} projectLink="https://t2408122.github.io/ui-kit" />
 );
-const footer = <Footer>MIT {new Date().getFullYear()} © Nextra.</Footer>;
+const footer = <Footer>MIT {new Date().getFullYear()} © Iocare UI Kit.</Footer>;
 
 export default async function RootLayout({
   children,
@@ -42,27 +38,14 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      // Not required, but good for SEO
-      lang="en"
-      // Required to be set
-      dir="ltr"
-      // Suggested by `next-themes` package https://github.com/pacocoursey/next-themes#with-app
-      suppressHydrationWarning
-    >
-      <Head
-      // ... Your additional head options
-      >
-        {/* Your additional tags should be passed as `children` of `<Head>` element */}
-      </Head>
+    <html lang="ko" dir="ko" suppressHydrationWarning>
+      <Head />
       <body>
         <Layout
-          banner={banner}
           navbar={navbar}
           pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/shuding/nextra/tree/main/docs"
+          docsRepositoryBase="https://github.com/t2408122/ui-kit/tree/main/docs/website"
           footer={footer}
-          // ... Your additional layout options
         >
           {children}
         </Layout>

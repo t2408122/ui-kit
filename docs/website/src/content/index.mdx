@@ -1,3 +1,25 @@
-# Welcome to Nextra
+import { Callout } from 'nextra/components';
 
-Hello, world!
+# Get Started
+
+Iocare UI Kit는 React, TypeScript 기반의 컴포넌트와 테마를 제공하는 모노레포 형태의 오픈소스 UI 라이브러리입니다.
+
+## Installation
+
+```bash
+pnpm add @iocare-ui-kit/controls @iocare-ui-kit/themes
+```
+
+<Callout type="warning">
+
+`@iocare-ui-kit/themes`의 css를 import 해야 `@iocare-ui-kit/controls`의 컴포넌트 스타일이 정상적으로 적용됩니다.
+
+```tsx
+import '@iocare-ui-kit/themes/index.css';
+```
+
+</Callout>
+
+## Usage
+
+사용법은 각 컴포넌트의 상세 페이지를 참고해주세요.

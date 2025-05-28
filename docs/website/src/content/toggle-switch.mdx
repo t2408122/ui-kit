@@ -1,5 +1,41 @@
-import ToggleSwtich from '@/demo/toggle-switch';
+import Sandpack from '@/components/sandpack';
 
 # Toggle Switch
 
-<ToggleSwtich />
+제어 모듈에서 ON/OFF 상태를 변경할 수 있는 컴포넌트입니다.
+
+## Props
+
+| Prop       | Type                           | Default | Description                             |
+| ---------- | ------------------------------ | ------- | --------------------------------------- |
+| id         | string                         | -       | 컴포넌트의 ID                           |
+| value      | number                         | -       | 컴포넌트의 값                           |
+| values     | `{ on: string; off: string; }` | -       | ON/OFF 상태의 값을 주입                        |
+| usePressed | boolean                        | true    | 컴포넌트가 눌러졌는지 여부              |
+| onControl  | (nextValue: string) => void    | -       | 컴포넌트의 값이 변경될 때 호출되는 함수 |
+
+## Example
+
+<Sandpack>
+
+```tsx Example.tsx active
+import React from 'react';
+import { ToggleSwitch } from '@iocare-ui-kit/controls';
+
+export default function ToggleSwtich() {
+  const [value, setValue] = React.useState(0);
+
+  return (
+    <ToggleSwitch
+      id="toggle-switch"
+      value={value}
+      onControl={(newValue) => {
+        console.log('hello', newValue);
+        setValue(Number(newValue));
+      }}
+    />
+  );
+}
+```
+
+</Sandpack>

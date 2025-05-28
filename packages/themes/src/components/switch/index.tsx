@@ -31,7 +31,6 @@ export function Switch(props: Props) {
         {...otherProps}
       />
       <label htmlFor={otherProps.id}>
-        11
         <span className={styles['button-switch__icon']} />
       </label>
     </div>

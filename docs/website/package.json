@@ -3,21 +3,24 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "postbuild": "node scripts/copy-controls-dist.js && node scripts/copy-themes-dist-css.js",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "serve": "serve out",
-    "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind"
+    "pagefind": "pagefind --site .next/server/app --output-path public/_pagefind"
   },
   "dependencies": {
+    "@codesandbox/sandpack-react": "^2.20.0",
     "@iocare-ui-kit/controls": "workspace:*",
     "@iocare-ui-kit/themes": "workspace:*",
     "next": "15.3.2",
     "nextra": "4.3.0-alpha.22",
     "nextra-theme-docs": "4.3.0-alpha.22",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "remark-sandpack": "^0.0.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
