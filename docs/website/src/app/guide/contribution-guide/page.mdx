@@ -1,0 +1,139 @@
+import { FileTree } from 'nextra/components';
+
+# Contribution Guide
+
+> Iocare UI Kit에 기여하려면 아래 스택을 알고 있어야 합니다. (전문가일 필요는 없습니다).
+
+1. [React](https://reactnative.dev)
+2. [TypeScript](https://www.typescriptlang.org)
+
+### 고려해야 할 점
+
+> packages 디렉터리 하위에 있는 패키지에 기여할 수 있습니다. 패키지내에 컴포넌트를 새로 생성한 후에는 해당 컴포넌트에 대한 테스트 코드를 작성해 보세요. 다른 사용자들을 위한 [가이드 문서](/guide/documentation-guide)를 작성하는 것이 좋습니다.
+
+### 설치
+
+1. Git clone을 통해 repository를 로컬환경에 복제합니다.
+2. dependencies를 설치합니다.
+
+```bash
+# 모노레포 루트에서 실행 (/your-directory/ui-kit/)
+pnpm install
+```
+
+- `pnpm`의 버전은 `10>=`이어야 합니다.
+- `Node.js`의 버전은 `22>=`이어야 합니다.
+
+## 공통 개발 환경
+
+- **Monorepo** 구조 (각 패키지는 독립적으로 개발 및 빌드)
+- **React + TypeScript + Vite** 기반
+- **vscode**를 기반으로 개발하고 있습니다.
+  - **ESLint** 및 **Prettier**로 코드 스타일 통일
+  - ([ui-kit.code-workspace](https://github.com/t2408122/ui-kit/blob/main/ui-kit.code-workspace)) 파일을 참고해주세요.
+- 각 패키지별 표준 **디렉터리 구조**
+
+  <FileTree>
+    <FileTree.Folder name="src" defaultOpen>
+      <FileTree.Folder name="components" defaultOpen>
+        <FileTree.Folder name="switch" defaultOpen>
+          <FileTree.File name="switch.test.tsx" />
+          <FileTree.File name="switch.module.scss (packages/themes에서만 사용)" />
+          <FileTree.File name="switch.tsx" />
+        </FileTree.Folder>
+        <FileTree.Folder name="button" defaultOpen>
+          <FileTree.File name="button.test.tsx" />
+          <FileTree.File name="button.module.scss (packages/themes에서만 사용)" />
+          <FileTree.File name="button.tsx" />
+        </FileTree.Folder>
+      </FileTree.Folder>
+      <FileTree.File name="index.ts" />
+    </FileTree.Folder>
+  </FileTree>
+
+### 기본 브랜치 전략
+
+PR 생성 전에 반드시 `main` 브랜치를 `pull` 해주세요.
+
+- `main`: 배포 및 릴리즈용
+- `feature/*`: 기능 개발
+- `fix/*`: 버그 수정
+
+### 커밋 컨벤션
+
+- [Conventional Commits](https://www.conventionalcommits.org/) 스타일 권장
+  - 예시: `feat: 새로운 Button 컴포넌트 추가`, `fix: Checkbox disabled 상태 버그 수정`
+
+---
+
+## 패키지별 가이드
+
+아래는 `packages/controls`, `packages/themes` 패키지에 대한 컨트리뷰션 가이드입니다.
+
+### 1. packages/controls
+
+- **역할**: Iocare IoT 디바이스 제어 컴포넌트 구현
+- **구조**
+  - `src/`: 컴포넌트 소스 코드
+  - `dist/`: 빌드 산출물 (수정 X)
+  - `README.md`: 사용법 및 개발 가이드
+  - `eslint.config.js`, `tsconfig.json`, `vite.config.ts`: 개발/빌드 설정
+- **기여 방법**
+
+  1. 새로운 컴포넌트 추가 시 `src/components/` 하위에 폴더 및 index.tsx 생성
+  2. packages/themes를 의존적인 컴포넌트 작성 권장 (scss 파일은 packages/themes에서만 사용)
+  3. 반드시 타입(TypeScript) 명확하게 작성
+  4. PR 시 테스트 코드(vitest) 추가 권장
+
+- **패키지 실행/테스트**
+  ```bash
+  pnpm --filter @iocare-ui-kit/controls dev # 개발모드(와치)
+  pnpm --filter @iocare-ui-kit/controls build # 빌드
+  pnpm --filter @iocare-ui-kit/controls test # 테스트
+  ```
+
+### 2. packages/themes
+
+- **역할**: UI Kit의 테마(색상, 폰트, spacing 등) 및 스타일 토큰 관리
+- **구조**
+  - `src/`: 테마 정의 및 관련 유틸
+  - `dist/`: 빌드 산출물 (수정 X)
+  - `README.md`: 테마 확장/사용법 안내
+  - 설정 파일: controls와 동일
+- **기여 방법**
+
+  1. 새로운 테마 추가 시 `src/`에 테마 파일 및 export 추가
+  2. 기존 토큰/스타일 수정 시 영향 범위 확인(controls와 연동될 수 있음)
+  3. 반드시 타입(TypeScript) 명확하게 작성
+  4. PR 시 테스트 코드(vitest) 추가 권장
+
+- **패키지 실행/테스트**
+
+  ```bash
+  pnpm --filter @iocare-ui-kit/themes dev # 개발모드(와치)
+  pnpm --filter @iocare-ui-kit/themes build # 빌드
+  pnpm --filter @iocare-ui-kit/themes test # 테스트
+  ```
+
+---
+
+## Pull Request(PR) 작성 시 체크리스트
+
+- [ ] 빌드 및 테스트 모두 통과
+- [ ] 코드 스타일(ESLint, Prettier) 준수
+- [ ] 타입 명확성, 타입 체크 통과
+- [ ] 주요 변경사항/기능은 README에 문서화
+- [ ] 영향받는 컴포넌트/테마가 있을 경우, 관련자와 사전 공유
+
+---
+
+## 기타 참고
+
+- 공통 설정(루트의 `.eslintrc`, `pnpm-workspace.yaml`, `turbo.json`, `tsconfig.json` 등)은 임의로 변경하지 말고, 필요시 논의 후 반영
+- 질문/제안/버그 리포트는 GitHub Issues 또는 Discussions 활용
+
+---
+
+### 기여해주셔서 감사합니다!
+
+더 궁금한 점이나 개선 아이디어가 있다면 언제든 PR 또는 Issue를 남겨주세요.

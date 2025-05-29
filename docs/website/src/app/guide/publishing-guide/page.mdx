@@ -1,0 +1,108 @@
+# Publishing Guide: Theme 퍼블리싱 실무 가이드
+
+Iocare UI Kit에서 퍼블리셔가 `apps/publishing` 프로젝트를 통해 `packages/themes`에 테마(스타일) 작업을 할 때 참고할 수 있는 가이드입니다.
+
+> Iocare UI Kit에 퍼블리싱 작업을 하기 위해 아래 스택을 알고 있어야 합니다. (전문가일 필요는 없습니다).
+
+1. [React](https://reactnative.dev)
+2. [SCSS](https://sass-lang.com)
+
+### 고려해야 할 점
+
+> 1. packages/themes 디렉터리 하위의 파일에만 기여할 수 있습니다.
+> 2. themes 패키지가 완성되기 전까지는 apps/publishing 프로젝트와 병행하여 작업이 진행될 수 있습니다.
+> 3. **Iocare IoT 디바이스 제어 컴포넌트에 한해 1차 개발을 진행합니다.**
+> 4. 다크모드를 고려한 스타일을 작성해야 합니다.
+
+---
+
+## 1. 폴더 구조 및 주요 파일
+
+- `packages/themes/src/`
+
+  - `components/`: 컴포넌트별 SCSS/스타일 파일(예: switch 등)
+  - `constants/`: 색상, 폰트, spacing 등 스타일 토큰 정의
+  - `index.ts`: 테마 엔트리포인트(내보내기)
+  - `scss.d.ts`: SCSS 타입 정의
+
+- **컴포넌트별 스타일 파일 예시**
+  - `src/components/switch/switch.module.scss`
+
+---
+
+## 2. 퍼블리싱 작업 절차
+
+### ① 새로운 테마/스타일 추가
+
+1. **컴포넌트별 폴더에 SCSS 파일 생성**
+   - 예: `src/components/button/button.module.scss`
+2. **SCSS 변수 및 믹스인 활용**
+   - 색상, 폰트 등은 `constants`에서 import하여 일관성 유지
+
+### ② 기존 테마/스타일 수정
+
+1. **해당 SCSS 파일 직접 수정**
+   - 예: `switch.module.scss`에서 색상, spacing, 상태 등 변경
+2. **공통 토큰(색상, 폰트 등) 변경 시**
+   - `constants` 폴더 내 파일에서 수정(다른 컴포넌트에 영향 줄 수 있으니 주의)
+
+### ③ 스타일 적용 결과 확인
+
+- 개발 서버 실행:
+  ```bash
+  준비중..
+  ```
+- 개발 환경에서 실제 스타일이 정상 반영되는지 확인
+
+---
+
+## 3. SCSS 작성 시 권장 규칙
+
+- **BEM 네이밍** 또는 일관된 클래스 네이밍 유지
+- **SCSS 변수/함수** 적극 활용 (`$primary-color`, `@mixin` 등)
+- **불필요한 중첩, !important 사용 지양**
+- **:after, :before**과 같은 가상 요소 사용 지양
+
+---
+
+## 4. 테마/토큰 확장 예시
+
+```scss
+// src/constants/colors.scss
+$primary: #007aff;
+$secondary: #e0e7ff;
+
+// src/components/button/button.module.scss
+@import '../../constants/colors';
+
+.button {
+  background: $primary;
+  color: #fff;
+  &:hover {
+    background: $secondary;
+  }
+}
+```
+
+---
+
+## 5. 커밋 및 PR
+
+- **컴포넌트 별로 브랜치 생성 및 PR 요청**
+- 커밋 메시지: `style(theme): 버튼 컬러 토큰 추가`, `style(theme): switch hover 스타일 수정` 등
+- PR에는 변경 전/후 스크린샷, 영향 범위(적용된 컴포넌트) 등 포함 권장
+
+---
+
+## 6. 참고
+
+- **테마/스타일 관련 문의**: FE 개발자 또는 디자인 시스템 담당자와 소통
+- **공통 토큰/스타일 변경 시**: 영향 범위 확인 후 PR에 간략히 포함
+
+---
+
+### 퍼블리셔를 위한 빠른 체크리스트
+
+- [ ] SCSS 파일은 컴포넌트별로 분리
+- [ ] 색상/폰트 등은 constants에서 import
+- [ ] SCSS 작성 시 권장 규칙 준수
